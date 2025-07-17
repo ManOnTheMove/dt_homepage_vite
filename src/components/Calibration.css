@@ -1,0 +1,98 @@
+.calibration-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  background: url('../background.svg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.page-title {
+  margin-bottom: 60px;
+  color: #333;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.v-shape-container {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.v-button {
+  position: absolute;
+  width: 288px;
+  height: 100px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.v-button:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  background-color: #3367d6;
+}
+
+/* V-Shape positioning for Calibration */
+/* Crash Data - Top left */
+.v-button.position-0 {
+  left: 5%;
+  top: 10%;
+}
+
+/* Requirements - Second layer left */
+.v-button.position-1 {
+  left: 20%;
+  top: 30%;
+}
+
+/* Calibration - Center bottom (V bottom) */
+.v-button.position-2 {
+  left: 50%;
+  top: 70%;
+  transform: translateX(-50%);
+}
+
+.v-button.position-2:hover {
+  transform: translateX(-50%) translateY(-8px);
+}
+
+/* Cal. Requirement Test - Second layer right */
+.v-button.position-3 {
+  right: 20%;
+  top: 30%;
+}
+
+/* Integration Test - Third layer right */
+.v-button.position-4 {
+  right: 10%;
+  top: 45%;
+}
+
+/* Release - Top right */
+.v-button.position-5 {
+  right: 5%;
+  top: 10%;
+}

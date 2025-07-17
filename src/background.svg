@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 400" style="height:80vh; width:auto; display:block; margin:0 auto;">
+  <!-- 使用 mask 实现内层挖空 -->
+  <defs>
+    <mask id="hole-mask">
+      <!-- 白色区域为显示部分，黑色区域为挖空 -->
+      <rect width="650" height="400" fill="white"></rect>
+      <path d="M150,0 L500,0 L350,200 L300,200 Z" fill="black"></path>
+    </mask>
+  </defs>
+  <!-- 外层填充，应用挖空 mask -->
+  <polygon points="0,0 150,0 300,200 350,200 500,0 650,0 400,400 250,400" fill="#10648a" mask="url(#hole-mask)"></polygon>
+  <!-- 外环描边，确保无内环描边 -->
+  <polygon points="0,0 150,0 300,200 350,200 500,0 650,0 400,400 250,400" fill="none" stroke="#000" stroke-width="2"></polygon>
+</svg>
