@@ -5,18 +5,27 @@ import './SystemEngineering.css';
 const SystemEngineering = () => {
   const navigate = useNavigate();
   
-  const buttons = [
-    'System Requirements',                    // position-0: Top left
-    'System Architecture and Design',        // position-1: Second layer left
-    'Hardware',                             // position-2: Third layer left
-    'Application: Vehicle Integration',      // position-3: Fourth layer left
-    'Software',                             // position-4: Between Applications (center upper)
-    'Application: Calibration',             // position-5: Fourth layer right
-    'Algo',                                // position-6: Right upper of Application: Calibration
-    'System Integration Test',             // position-7: Right upper of Algo
-    'System Test',                         // position-8: Right upper of System Integration Test
-    'Release of Product Samples',          // position-9: Right upper of System Test
-    'Plant Interface'                      // position-10: Right upper of Release of Product Samples
+  // 左侧子页面按钮 - 需求与设计
+  const leftSidebarButtons = [
+    'System Requirements',
+    'System Architecture and Design',
+    'Hardware'
+  ];
+  
+  // 右侧子页面按钮 - 测试与发布
+  const rightSidebarButtons = [
+    'System Integration Test',
+    'System Test', 
+    'Release of Product Samples',
+    'Plant Interface'
+  ];
+  
+  // 底部子页面按钮 - 应用与实现
+  const bottomSectionButtons = [
+    'Software',
+    'Application: Vehicle Integration', 
+    'Application: Calibration',
+    'Algo'
   ];
 
   // 定义按钮到页面的映射关系
@@ -40,19 +49,45 @@ const SystemEngineering = () => {
     }
   };
 
+  const renderButtonGroup = (buttons, className) => (
+    <div className={`button-group ${className}`}>
+      {buttons.map((buttonName, index) => (
+        <button
+          key={index}
+          className="se-button"
+          onClick={() => handleButtonClick(buttonName)}
+        >
+          {buttonName}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div className="system-engineering-container">
-      <h1 className="page-title">System Engineering</h1>
-      <div className="v-shape-container">
-        {buttons.map((buttonName, index) => (
-          <button
-            key={index}
-            className={`v-button position-${index}`}
-            onClick={() => handleButtonClick(buttonName)}
-          >
-            {buttonName}
-          </button>
-        ))}
+      <div className="main-content">
+        {/* 左侧子页面 */}
+        <div className="left-sidebar">
+          <h3 className="sidebar-title">Requirements & Design</h3>
+          {renderButtonGroup(leftSidebarButtons, 'left-buttons')}
+        </div>
+        
+        {/* 中央标题区域 */}
+        <div className="center-content">
+          <h1 className="page-title">System Engineering</h1>
+        </div>
+        
+        {/* 右侧子页面 */}
+        <div className="right-sidebar">
+          <h3 className="sidebar-title">Testing & Release</h3>
+          {renderButtonGroup(rightSidebarButtons, 'right-buttons')}
+        </div>
+      </div>
+      
+      {/* 底部子页面 */}
+      <div className="bottom-section">
+        <h3 className="section-title">Applications & Implementation</h3>
+        {renderButtonGroup(bottomSectionButtons, 'bottom-buttons')}
       </div>
     </div>
   );

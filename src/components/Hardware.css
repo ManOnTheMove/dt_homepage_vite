@@ -5,8 +5,34 @@
   padding: 20px;
   text-align: center;
   min-height: 100vh;
-  background: url('../background.svg') no-repeat center center fixed;
+  background: url('../background.svg') no-repeat center center;
   background-size: cover;
+  background-attachment: scroll;
+}
+
+/* 响应式背景图像 */
+@media screen and (max-width: 1200px) {
+  .hardware-container {
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hardware-container {
+    background-size: cover;
+    background-position: center center;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hardware-container {
+    background-size: 100% auto;
+    background-position: center top;
+    min-height: auto;
+    padding: 10px;
+  }
 }
 
 .page-title {
@@ -59,7 +85,7 @@
 /* Top layer */
 .v-button.position-0 {
   left: 5%;
-  top: 10%;
+  top: calc(10% + 25px); /* Move down by 1/4 of button height (25px) */
 }
 
 /* Second layer */
@@ -110,8 +136,8 @@
 
 .circle {
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 21px; /* Reduced to 2/3 of original 32px */
+  height: 21px; /* Reduced to 2/3 of original 32px */
   border-radius: 50%;
   background-color: #ff9800;
   color: #fff;
@@ -119,8 +145,8 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 10px; /* Reduced proportionally */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
   overflow: hidden; /* Ensure image fits */
 }
 
@@ -133,15 +159,24 @@
 
 .circle-row {
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 4px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 6px; /* Slightly smaller gap for smaller icons */
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
 }
 
 .v-button.with-circles {
+  position: relative; /* Enable absolute positioning for icons */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 10px; /* extra space for circles */
+}
+
+.v-button.with-circles span {
+  font-size: 18px; /* Increased from default 16px */
+  font-weight: bold;
 }
 

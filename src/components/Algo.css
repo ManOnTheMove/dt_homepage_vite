@@ -5,8 +5,34 @@
   padding: 20px;
   text-align: center;
   min-height: 100vh;
-  background: url('../background.svg') no-repeat center center fixed;
+  background: url('../background.svg') no-repeat center center;
   background-size: cover;
+  background-attachment: scroll;
+}
+
+/* 响应式背景图像 */
+@media screen and (max-width: 1200px) {
+  .algo-container {
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .algo-container {
+    background-size: cover;
+    background-position: center center;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .algo-container {
+    background-size: 100% auto;
+    background-position: center top;
+    min-height: auto;
+    padding: 10px;
+  }
 }
 
 .page-title {

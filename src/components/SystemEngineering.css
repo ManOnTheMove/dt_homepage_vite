@@ -3,163 +3,243 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
-  text-align: center;
   min-height: 100vh;
-  background: url('../background.svg') no-repeat center center fixed;
+  background: url('../background.svg') no-repeat center center;
   background-size: cover;
+  background-attachment: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 响应式背景图像 */
+@media screen and (max-width: 1200px) {
+  .system-engineering-container {
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .system-engineering-container {
+    background-size: cover;
+    background-position: center center;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .system-engineering-container {
+    background-size: 100% auto;
+    background-position: center top;
+    min-height: auto;
+    padding: 10px;
+  }
+}
+
+/* Main content layout */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  min-height: 500px;
+}
+
+/* Center content with title */
+.center-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .page-title {
-  margin-bottom: 60px;
   color: #333;
   font-size: 36px;
   font-weight: bold;
+  margin: 0;
 }
 
-.v-shape-container {
-  position: relative;
-  width: 100%;
-  height: 1050px;
-  margin: 0 auto;
+/* Left and Right Sidebars */
+.left-sidebar,
+.right-sidebar {
+  width: 300px;
+  max-height: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
   display: flex;
-  justify-content: center;
-  overflow: visible;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.v-button {
-  position: absolute;
-  width: 288px;
-  height: 100px;
+.sidebar-title {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4285f4;
+}
+
+/* Bottom Section */
+.bottom-section {
+  width: 100%;
+  max-height: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+}
+
+.section-title {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4285f4;
+}
+
+/* Button Groups */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bottom-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Button Styles */
+.se-button {
+  width: 100%;
+  height: 80px;
   background-color: #4285f4;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  padding: 15px;
+  padding: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.2;
 }
 
-.v-button:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+.se-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   background-color: #3367d6;
 }
 
-/* V-Shape positioning - updated layout with increased spacing and moved down */
-/* Top layer */
-.v-button.position-0 {
-  left: 2%;
-  top: calc(5% + 200px);
+/* Custom scrollbar for sub-pages */
+.left-sidebar::-webkit-scrollbar,
+.right-sidebar::-webkit-scrollbar,
+.bottom-section::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Second layer */
-.v-button.position-1 {
-  left: 12%;
-  top: calc(20% + 200px);
+.left-sidebar::-webkit-scrollbar-track,
+.right-sidebar::-webkit-scrollbar-track,
+.bottom-section::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
-/* Third layer */
-.v-button.position-2 {
-  left: 22%;
-  top: calc(35% + 200px);
+.left-sidebar::-webkit-scrollbar-thumb,
+.right-sidebar::-webkit-scrollbar-thumb,
+.bottom-section::-webkit-scrollbar-thumb {
+  background: #4285f4;
+  border-radius: 4px;
 }
 
-/* Fourth layer - Application buttons */
-.v-button.position-3 {
-  left: 32%;
-  top: calc(50% + 200px);
+.left-sidebar::-webkit-scrollbar-thumb:hover,
+.right-sidebar::-webkit-scrollbar-thumb:hover,
+.bottom-section::-webkit-scrollbar-thumb:hover {
+  background: #3367d6;
 }
 
-/* Software - Between Applications (center upper) */
-.v-button.position-4 {
-  left: 50%;
-  top: calc(35% + 200px);
-  transform: translateX(-50%);
-}
-
-.v-button.position-4:hover {
-  transform: translateX(-50%) translateY(-8px);
-}
-
-/* Application: Calibration */
-.v-button.position-5 {
-  right: 32%;
-  top: calc(50% + 200px);
-}
-
-/* Algo - Right upper of Application: Calibration */
-.v-button.position-6 {
-  right: 22%;
-  top: calc(35% + 200px);
-}
-
-/* System Integration Test - Right upper of Algo */
-.v-button.position-7 {
-  right: 12%;
-  top: calc(20% + 200px);
-}
-
-/* System Test - Right upper of System Integration Test */
-.v-button.position-8 {
-  right: 2%;
-  top: calc(5% + 200px);
-}
-
-/* Release of Product Samples - Right upper of System Test */
-.v-button.position-9 {
-  right: -5%;
-  top: calc(-10% + 200px);
-}
-
-/* Plant Interface - Right upper of Release of Product Samples */
-.v-button.position-10 {
-  right: -8%;
-  top: calc(-25% + 200px);
-}
-
-@media (max-width: 1000px) {
-  .v-button {
-    width: 180px;
-    height: 70px;
-    font-size: 14px;
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-content {
+    gap: 15px;
+  }
+  
+  .left-sidebar,
+  .right-sidebar {
+    width: 250px;
+  }
+  
+  .page-title {
+    font-size: 30px;
   }
 }
 
-@media (max-width: 768px) {
-  .v-shape-container {
-    height: 900px;
+@media (max-width: 900px) {
+  .main-content {
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
   
-  .v-button {
-    position: relative;
-    width: 80%;
-    margin: 10px auto;
-    left: auto;
-    right: auto;
-    top: auto;
+  .left-sidebar,
+  .right-sidebar {
+    width: 100%;
+    max-width: 400px;
+    max-height: 300px;
   }
   
-  /* Reset transforms for mobile */
-  .v-button.position-4,
-  .v-button.position-9,
-  .v-button.position-10 {
-    transform: none;
+  .center-content {
+    order: -1;
   }
   
-  .v-button.position-4:hover,
-  .v-button.position-9:hover,
-  .v-button.position-10:hover {
-    transform: translateY(-8px);
+  .bottom-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .system-engineering-container {
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .sidebar-title,
+  .section-title {
+    font-size: 16px;
+  }
+  
+  .se-button {
+    height: 60px;
+    font-size: 12px;
+  }
+  
+  .left-sidebar,
+  .right-sidebar,
+  .bottom-section {
+    padding: 15px;
   }
 }
