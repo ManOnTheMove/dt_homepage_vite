@@ -1,37 +1,42 @@
 import React from 'react';
-import './Software.css';
+import PageLayout from './PageLayout';
 
 const Software = () => {
-  const buttons = [
-    'SW Architecture',          // position-0: Top left
-    'Component Requirements',   // position-1: Second layer left
-    'SW Design',               // position-2: Third layer left
-    'Implementation',          // position-3: Fourth layer left (V bottom left)
-    'Configuration',           // position-4: Fourth layer right (V bottom right)
-    'SW Integration and Test', // position-5: Third layer right
-    'SW Requirement Test'      // position-6: Second layer right
-  ];
-
-  const handleButtonClick = (buttonName) => {
-    console.log(`Clicked on ${buttonName}`);
-    // Future functionality can be added here
+  // 页面配置
+  const pageConfig = {
+    pageTitle: 'Software',
+    leftSection: {
+      title: 'Requirements & Architecture',
+      buttons: [
+        'Component Requirements',
+        'SW Architecture'
+      ]
+    },
+    rightSection: {
+      title: 'Testing & Validation',
+      buttons: [
+        'SW Integration and Test',
+        'SW Requirement Test'
+      ]
+    },
+    bottomSection: {
+      title: 'Design & Implementation',
+      buttons: [
+        'SW Design',
+        'Implementation',
+        'Configuration'
+      ]
+    }
   };
 
   return (
-    <div className="software-container">
-      <h1 className="page-title">Software</h1>
-      <div className="v-shape-container">
-        {buttons.map((buttonName, index) => (
-          <button
-            key={index}
-            className={`v-button position-${index}`}
-            onClick={() => handleButtonClick(buttonName)}
-          >
-            {buttonName}
-          </button>
-        ))}
-      </div>
-    </div>
+    <PageLayout
+      pageTitle={pageConfig.pageTitle}
+      leftSection={pageConfig.leftSection}
+      rightSection={pageConfig.rightSection}
+      bottomSection={pageConfig.bottomSection}
+      buttonPageMap={{}}
+    />
   );
 };
 

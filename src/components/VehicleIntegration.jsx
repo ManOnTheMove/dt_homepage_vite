@@ -1,35 +1,40 @@
 import React from 'react';
-import './VehicleIntegration.css';
+import PageLayout from './PageLayout';
 
 const VehicleIntegration = () => {
-  const buttons = [
-    'Requirements',            // position-0: Top left
-    'Definition',             // position-1: Center bottom (V bottom)
-    'Crash Test',             // position-2: Second layer left
-    'Evaluation',             // position-3: Third layer right
-    'Release'                 // position-4: Top right
-  ];
-
-  const handleButtonClick = (buttonName) => {
-    console.log(`Clicked on ${buttonName}`);
-    // Future functionality can be added here
+  // 页面配置
+  const pageConfig = {
+    pageTitle: 'Application: Vehicle Integration',
+    leftSection: {
+      title: 'Planning & Requirements',
+      buttons: [
+        'Requirements',
+        'Definition'
+      ]
+    },
+    rightSection: {
+      title: 'Validation & Release',
+      buttons: [
+        'Evaluation',
+        'Release'
+      ]
+    },
+    bottomSection: {
+      title: 'Testing & Verification',
+      buttons: [
+        'Crash Test'
+      ]
+    }
   };
 
   return (
-    <div className="vehicle-integration-container">
-      <h1 className="page-title">Application: Vehicle Integration</h1>
-      <div className="v-shape-container">
-        {buttons.map((buttonName, index) => (
-          <button
-            key={index}
-            className={`v-button position-${index}`}
-            onClick={() => handleButtonClick(buttonName)}
-          >
-            {buttonName}
-          </button>
-        ))}
-      </div>
-    </div>
+    <PageLayout
+      pageTitle={pageConfig.pageTitle}
+      leftSection={pageConfig.leftSection}
+      rightSection={pageConfig.rightSection}
+      bottomSection={pageConfig.bottomSection}
+      buttonPageMap={{}}
+    />
   );
 };
 
