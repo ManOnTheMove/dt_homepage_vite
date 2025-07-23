@@ -4,9 +4,7 @@
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
-  background: url('../background.svg') no-repeat center center;
-  background-size: cover;
-  background-attachment: scroll;
+  background-color: rgb(86, 176, 225);
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -57,7 +55,7 @@
 }
 
 .page-title {
-  color: #333;
+  color: #000;
   font-size: 36px;
   font-weight: bold;
   margin: 0;
@@ -126,7 +124,7 @@
 .se-button {
   width: 100%;
   height: 80px;
-  background-color: #4285f4;
+  background-color: rgb(55, 162, 100);
   color: white;
   border: none;
   border-radius: 12px;
@@ -148,7 +146,7 @@
 .se-button:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  background-color: #3367d6;
+  background-color: rgb(44, 130, 80);
 }
 
 /* Custom scrollbar for sub-pages */
