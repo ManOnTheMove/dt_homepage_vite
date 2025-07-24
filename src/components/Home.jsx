@@ -4,7 +4,8 @@ import './Home.css';
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="home-page-wrapper">
+      <div className="home-container">
       <h1 className="home-title">DT Project Home</h1>
       <p className="home-description">
         Welcome to the DT Project Management System. Navigate through different modules to explore the engineering workflows.
@@ -35,6 +36,7 @@ const Home = () => {
           <p>Algorithm development and integration</p>
         </Link>
       </div>
+    </div>
     </div>
   );
 };

@@ -49,6 +49,7 @@ const SystemEngineering = () => {
       rightSection={pageConfig.rightSection}
       bottomSection={pageConfig.bottomSection}
       buttonPageMap={buttonPageMap}
+      pageClassName="system-engineering-page"
     />
   );
 };

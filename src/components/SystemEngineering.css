@@ -4,7 +4,9 @@
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
-  background-color: rgb(86, 176, 225);
+  background: url('../background.svg') no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
   display: flex;
   flex-direction: column;
   gap: 30px;

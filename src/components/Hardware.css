@@ -5,7 +5,9 @@
   padding: 20px;
   text-align: center;
   min-height: 100vh;
-  background-color: rgb(102, 184, 178);
+  background: url('../background.svg') no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
 }
 
 /* 响应式背景图像 */

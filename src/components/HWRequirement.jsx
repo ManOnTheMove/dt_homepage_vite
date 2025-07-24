@@ -3,6 +3,23 @@ import { hwRequirementTools } from '../config/hwRequirementTools';
 import './HWRequirement.css';
 
 const HWRequirement = () => {
+  // 从URL中提取域名
+  const extractDomain = (url) => {
+    try {
+      const domain = new URL(url).hostname;
+      return domain;
+    } catch (error) {
+      console.error("Invalid URL:", url);
+      return "";
+    }
+  };
+
+  // 获取网站favicon的URL
+  const getFaviconUrl = (url) => {
+    const domain = extractDomain(url);
+    // 使用Google的favicon服务获取favicon
+    return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+  };
   const handleEnterClick = (link) => {
     window.open(link, '_blank');
   };
@@ -13,6 +30,17 @@ const HWRequirement = () => {
       <div className="hero-cards-container">
         {hwRequirementTools.map((tool) => (
           <div key={tool.id} className="hero-card">
+            <div className="logo-container">
+              <img 
+                src={getFaviconUrl(tool.link)} 
+                alt={`${tool.toolName} logo`} 
+                className="tool-logo"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.style.display = 'none';
+                }}
+              />
+            </div>
             <div className="card-content">
               <h2 className="tool-name">{tool.toolName}</h2>
               {tool.responsible && (

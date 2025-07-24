@@ -1,3 +1,14 @@
+/* Page-specific background colors */
+.system-engineering-page.page-layout-container {
+  background: linear-gradient(rgba(86, 176, 225, 0.85), rgba(86, 176, 225, 0.85)), url('../background.svg') no-repeat center center;
+  background-size: cover; /* Ensure background size is maintained */
+}
+
+.secondary-page.page-layout-container {
+  background: linear-gradient(rgba(102, 184, 178, 0.85), rgba(102, 184, 178, 0.85)), url('../background.svg') no-repeat center center;
+  background-size: cover; /* Ensure background size is maintained */
+}
+
 .page-layout-container {
   width: 100%;
   max-width: 1400px;

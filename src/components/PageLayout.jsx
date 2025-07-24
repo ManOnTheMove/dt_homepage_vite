@@ -7,7 +7,9 @@ const PageLayout = ({
   leftSection,
   rightSection, 
   bottomSection,
-  buttonPageMap = {}
+  buttonPageMap = {},
+  pageClassName,
+  renderCustomButton
 }) => {
   const navigate = useNavigate();
 
@@ -25,20 +27,25 @@ const PageLayout = ({
 
   const renderButtonGroup = (buttons, className) => (
     <div className={`button-group ${className}`}>
-      {buttons.map((buttonName, index) => (
-        <button
-          key={index}
-          className="layout-button"
-          onClick={() => handleButtonClick(buttonName)}
-        >
-          {buttonName}
-        </button>
-      ))}
+      {buttons.map((buttonName, index) => {
+        if (renderCustomButton) {
+          return renderCustomButton(buttonName, index, handleButtonClick);
+        }
+        return (
+          <button
+            key={index}
+            className="layout-button"
+            onClick={() => handleButtonClick(buttonName)}
+          >
+            {buttonName}
+          </button>
+        );
+      })}
     </div>
   );
 
   return (
-    <div className="page-layout-container">
+    <div className={`page-layout-container ${pageClassName || ''}`}>
       <div className="main-content">
         {/* 左侧子页面 */}
         <div className="left-sidebar">

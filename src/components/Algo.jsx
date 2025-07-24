@@ -37,7 +37,18 @@ const Algo = () => {
       leftSection={pageConfig.leftSection}
       rightSection={pageConfig.rightSection}
       bottomSection={pageConfig.bottomSection}
-      buttonPageMap={{}}
+      buttonPageMap={{
+        'Prototype': '/prototype',
+        'Algo Requirements': '/algo-requirements',
+        'Algo Architecture': '/algo-architecture',
+        'Algo Unit Design': '/algo-unit-design',
+        'Algo Unit Test': '/algo-unit-test',
+        'Algo Integration test': '/algo-integration-test',
+        'Algo Requirement Test': '/algo-requirement-test',
+        'Implementation': '/algo-implementation',
+        'Algo Integration': '/algo-integration'
+      }}
+      pageClassName="secondary-page"
     />
   );
 };

@@ -1,6 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { hwRequirementTools } from '../config/hwRequirementTools';
+import { hwArchitectureTools } from '../config/hwArchitectureTools';
+import { hwDesignTestTools } from '../config/hwDesignTestTools';
+import { hwIntegrationTestTools } from '../config/hwIntegrationTestTools';
+import { hwModuleDesignTools } from '../config/hwModuleDesignTools';
+import { ecuCircuitDesignTools } from '../config/ecuCircuitDesignTools';
+import { implementationTools } from '../config/implementationTools';
 import PageLayout from './PageLayout';
 import logoSvg from '../logo.svg';
 
@@ -16,121 +22,107 @@ const getLogoUrl = (link) => {
 const Hardware = () => {
   const navigate = useNavigate();
 
-  // 自定义按钮点击处理（用于HW requirements的特殊功能）
-  const customButtonHandler = (buttonName) => {
-    console.log(`Clicked on ${buttonName}`);
-    
-    if (buttonName === 'HW requirements') {
-      navigate('/hw-requirement');
-    } else {
-      alert(`You clicked on: ${buttonName}`);
-    }
-  };
-
-  // 页面配置
   const pageConfig = {
     pageTitle: 'Hardware',
-    leftSection: {
-      title: 'Requirements & Architecture',
-      buttons: [
-        'HW requirements',
-        'HW Architecture'
-      ]
-    },
-    rightSection: {
-      title: 'Testing & Validation',
-      buttons: [
-        'HW design test',
-        'HW integration Test & Requirement Test'
-      ]
-    },
-    bottomSection: {
-      title: 'Design & Implementation',
-      buttons: [
-        'HW-Module Design',
-        'ECU Circuit Design',
-        'Implementation'
-      ]
+    leftSection: { title: 'Requirements & Architecture', buttons: ['HW requirements', 'HW Architecture'] },
+    rightSection: { title: 'Testing & Validation', buttons: ['HW design test', 'HW integration Test & Requirement Test'] },
+    bottomSection: { title: 'Design & Implementation', buttons: ['HW-Module Design', 'ECU Circuit Design', 'Implementation'] },
+  };
+
+  // Get the appropriate tools configuration for each button
+  const getToolsForButton = (buttonName) => {
+    switch (buttonName) {
+      case 'HW requirements':
+        return hwRequirementTools;
+      case 'HW Architecture':
+        return hwArchitectureTools;
+      case 'HW design test':
+        return hwDesignTestTools;
+      case 'HW integration Test & Requirement Test':
+        return hwIntegrationTestTools;
+      case 'HW-Module Design':
+        return hwModuleDesignTools;
+      case 'ECU Circuit Design':
+        return ecuCircuitDesignTools;
+      case 'Implementation':
+        return implementationTools;
+      default:
+        return [];
     }
   };
 
-  // 为HW requirements按钮添加工具圆圈的自定义渲染
-  const CustomPageLayout = ({ pageTitle, leftSection, rightSection, bottomSection }) => {
-    const renderCustomButton = (buttonName, index) => {
-      const isHWReq = buttonName === 'HW requirements';
-      
-      return (
-        <button
-          key={index}
-          className={`layout-button ${isHWReq ? 'with-circles' : ''}`}
-          onClick={() => customButtonHandler(buttonName)}
-        >
-          <span>{buttonName}</span>
-          {isHWReq && (
-            <div className="circle-row">
-              {hwRequirementTools.slice(0, 4).map((tool) => (
-                <div
-                  key={tool.id}
-                  className="circle"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(tool.link, '_blank');
-                  }}
-                >
-                  <img
-                    src={getLogoUrl(tool.link)}
-                    alt={`${tool.toolName} logo`}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = logoSvg;
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </button>
-      );
+  const renderCustomHardwareButton = (buttonName, index, handleButtonClick) => {
+    const tools = getToolsForButton(buttonName);
+    const hasTools = tools && tools.length > 0;
+
+    const onButtonClick = () => {
+      switch (buttonName) {
+        case 'HW requirements':
+          navigate('/hw-requirement');
+          break;
+        case 'HW Architecture':
+          navigate('/hw-architecture');
+          break;
+        case 'HW design test':
+          navigate('/hw-design-test');
+          break;
+        case 'HW integration Test & Requirement Test':
+          navigate('/hw-integration-test');
+          break;
+        case 'HW-Module Design':
+          navigate('/hw-module-design');
+          break;
+        case 'ECU Circuit Design':
+          navigate('/ecu-circuit-design');
+          break;
+        case 'Implementation':
+          navigate('/implementation');
+          break;
+        default:
+          alert(`Navigation for ${buttonName} is not configured yet.`);
+      }
     };
 
-    const renderButtonGroup = (buttons, className) => (
-      <div className={`button-group ${className}`}>
-        {buttons.map((buttonName, index) => renderCustomButton(buttonName, index))}
-      </div>
-    );
-
     return (
-      <div className="page-layout-container">
-        <div className="main-content">
-          <div className="left-sidebar">
-            <h3 className="sidebar-title">{leftSection.title}</h3>
-            {renderButtonGroup(leftSection.buttons, 'left-buttons')}
+      <button
+        key={index}
+        className={`layout-button ${hasTools ? 'with-circles' : ''}`}
+        onClick={onButtonClick}
+      >
+        <span>{buttonName}</span>
+        {hasTools && (
+          <div className="circle-row">
+            {tools.slice(0, 4).map((tool) => (
+              <div
+                key={tool.id}
+                className="circle"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(tool.link, '_blank');
+                }}
+                title={`${tool.toolName} - ${tool.description}`}
+              >
+                <img
+                  src={getLogoUrl(tool.link)}
+                  alt={`${tool.toolName} logo`}
+                  onError={(e) => { e.target.onerror = null; e.target.src = logoSvg; }}
+                />
+              </div>
+            ))}
           </div>
-          
-          <div className="center-content">
-            <h1 className="page-title">{pageTitle}</h1>
-          </div>
-          
-          <div className="right-sidebar">
-            <h3 className="sidebar-title">{rightSection.title}</h3>
-            {renderButtonGroup(rightSection.buttons, 'right-buttons')}
-          </div>
-        </div>
-        
-        <div className="bottom-section">
-          <h3 className="section-title">{bottomSection.title}</h3>
-          {renderButtonGroup(bottomSection.buttons, 'bottom-buttons')}
-        </div>
-      </div>
+        )}
+      </button>
     );
   };
 
   return (
-    <CustomPageLayout
+    <PageLayout
       pageTitle={pageConfig.pageTitle}
       leftSection={pageConfig.leftSection}
       rightSection={pageConfig.rightSection}
       bottomSection={pageConfig.bottomSection}
+      pageClassName="secondary-page"
+      renderCustomButton={renderCustomHardwareButton}
     />
   );
 };
