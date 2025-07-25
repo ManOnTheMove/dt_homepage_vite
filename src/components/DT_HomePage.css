@@ -1,0 +1,40 @@
+.dt-homepage-container {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../DT_HomePage.png');
+  background-size: 75%; /* 缩小到原来的3/4大小 */
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  position: absolute; /* Changed from fixed to absolute */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Lower z-index to ensure navigation is visible */
+}
+
+/* Add responsive styling for different screen sizes */
+@media (max-width: 1200px) {
+  .dt-homepage-container {
+    background-size: 75%; /* 保持缩小比例 */
+    background-position: center center;
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .dt-homepage-container {
+    background-size: 50%; /* 缩小到原来的3/4大小 */
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dt-homepage-container {
+    background-size: 50% auto; /* 缩小到原来的3/4大小 */
+    padding: 10px;
+  }
+}

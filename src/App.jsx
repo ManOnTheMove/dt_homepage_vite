@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
+import DT_HomePage from './components/DT_HomePage';
 import SystemEngineering from './components/SystemEngineering';
 import Hardware from './components/Hardware';
 import HWRequirement from './components/HWRequirement';
@@ -50,7 +51,8 @@ function App() {
       <div className="App">
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<DT_HomePage />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/system-engineering" element={<SystemEngineering />} />
           <Route path="/hardware" element={<Hardware />} />
           <Route path="/hw-requirement" element={<HWRequirement />} />
