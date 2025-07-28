@@ -1,7 +1,7 @@
 .home-page-wrapper {
   background-color: rgb(86, 176, 225);
   min-height: 100vh;
-  padding: 5rem 0;
+  padding: 2rem 0;
   display: flex;
 }
 
@@ -23,7 +23,7 @@
 .home-description {
   font-size: 1.2rem;
   color: white;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -62,4 +62,11 @@
 .home-card p {
   color: #7f8c8d;
   line-height: 1.6;
+}
+
+.home-image {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 0 auto;
 }
