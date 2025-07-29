@@ -4,12 +4,13 @@ import './PageLayout.css';
 
 const PageLayout = ({ 
   pageTitle,
-  leftSection,
-  rightSection, 
+  leftSection = { title: '', buttons: [] },
+  rightSection = { title: '', buttons: [] },
   bottomSection,
   buttonPageMap = {},
   pageClassName,
-  renderCustomButton
+  renderCustomButton,
+  simplifiedLayout = false
 }) => {
   const navigate = useNavigate();
 
@@ -43,6 +44,20 @@ const PageLayout = ({
       })}
     </div>
   );
+
+  if (simplifiedLayout) {
+    return (
+      <div className={`page-layout-container ${pageClassName || ''}`}>
+        <div className="center-content simplified-center">
+          <h1 className="page-title">{pageTitle}</h1>
+          <div className="simplified-bottom-section">
+            <h3 className="section-title">{bottomSection.title}</h3>
+            {renderButtonGroup(bottomSection.buttons, 'bottom-buttons simplified-buttons')}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`page-layout-container ${pageClassName || ''}`}>

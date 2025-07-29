@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import DT_HomePage from './components/DT_HomePage';
@@ -44,6 +44,11 @@ import AlgoRequirementTest from './components/AlgoRequirementTest';
 import AlgoImplementation from './components/AlgoImplementation';
 import AlgoIntegration from './components/AlgoIntegration';
 import Navigation from './components/Navigation';
+import SystemTestSWTesting from './components/SystemTestSWTesting';
+import TestDesign from './components/test/TestDesign';
+import TestSetup from './components/test/TestSetup';
+import TestExecution from './components/test/TestExecution';
+import TestReport from './components/test/TestReport';
 
 function App() {
   return (
@@ -51,7 +56,7 @@ function App() {
       <div className="App">
         <Navigation />
         <Routes>
-          <Route path="/" element={<DT_HomePage />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
           <Route path="/system-engineering" element={<SystemEngineering />} />
           <Route path="/hardware" element={<Hardware />} />
@@ -93,6 +98,11 @@ function App() {
           <Route path="/algo-requirement-test" element={<AlgoRequirementTest />} />
           <Route path="/algo-implementation" element={<AlgoImplementation />} />
           <Route path="/algo-integration" element={<AlgoIntegration />} />
+          <Route path="/system-test-sw-testing" element={<SystemTestSWTesting />} />
+          <Route path="/test-design" element={<TestDesign />} />
+          <Route path="/test-setup" element={<TestSetup />} />
+          <Route path="/test-execution" element={<TestExecution />} />
+          <Route path="/test-report" element={<TestReport />} />
         </Routes>
       </div>
     </Router>

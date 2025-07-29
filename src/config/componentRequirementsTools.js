@@ -9,7 +9,7 @@ export const componentRequirementsTools = [
   },
   {
     id: 2,
-    toolName: "Component Tracker",
+    toolName: "sssss",
     responsible: "EPD - Component Engineering",
     description: "Component requirements tracking and traceability system",
     link: "https://inside-docupedia.bosch.com/confluence2/display/CCOSSEBECN/ComponentReq"

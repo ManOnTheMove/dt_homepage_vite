@@ -52,8 +52,10 @@ const Software = () => {
   };
 
   const renderCustomSoftwareButton = (buttonName, index, handleButtonClick) => {
-    const tools = getToolsForButton(buttonName);
-    const hasTools = tools && tools.length > 0;
+    // For 'SW Requirement Test' button, don't show any tools
+    const showTools = buttonName !== 'SW Requirement Test';
+    const tools = showTools ? getToolsForButton(buttonName) : [];
+    const hasTools = showTools && tools && tools.length > 0;
 
     const onButtonClick = () => {
       switch (buttonName) {
@@ -67,7 +69,7 @@ const Software = () => {
           navigate('/sw-integration-test');
           break;
         case 'SW Requirement Test':
-          navigate('/sw-requirement-test');
+          navigate('/system-test-sw-testing');
           break;
         case 'SW Design':
           navigate('/sw-design');

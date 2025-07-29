@@ -5,7 +5,7 @@
   padding: 20px;
   text-align: center;
   min-height: 100vh;
-  background: url('../background.svg') no-repeat center center;
+  background: url('/background.svg') no-repeat center center;
   background-size: cover;
   background-attachment: scroll;
 }

@@ -1,11 +1,11 @@
 /* Page-specific background colors */
 .system-engineering-page.page-layout-container {
-  background: linear-gradient(rgba(86, 176, 225, 0.85), rgba(86, 176, 225, 0.85)), url('../background.svg') no-repeat center center;
+  background: linear-gradient(rgba(86, 176, 225, 0.85), rgba(86, 176, 225, 0.85)), url('/background.svg') no-repeat center center;
   background-size: cover; /* Ensure background size is maintained */
 }
 
 .secondary-page.page-layout-container {
-  background: linear-gradient(rgba(102, 184, 178, 0.85), rgba(102, 184, 178, 0.85)), url('../background.svg') no-repeat center center;
+  background: linear-gradient(rgba(102, 184, 178, 0.85), rgba(102, 184, 178, 0.85)), url('/background.svg') no-repeat center center;
   background-size: cover; /* Ensure background size is maintained */
 }
 
@@ -15,12 +15,61 @@
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
-  background: url('../background.svg') no-repeat center center;
+  background: url('/background.svg') no-repeat center center;
   background-size: cover;
   background-attachment: scroll;
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+/* System Test SW Testing page with light blue background */
+.system-test-sw-testing.page-layout-container {
+  background-color: rgb(184, 214, 255) !important;
+  background-image: none !important;
+}
+
+/* Simplified layout styles */
+.simplified-layout .simplified-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.simplified-layout .simplified-bottom-section {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.simplified-layout .section-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.simplified-layout .simplified-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.simplified-layout .layout-button {
+  width: 100%;
+  margin: 0;
+  padding: 15px 10px;
+  font-size: 16px;
 }
 
 /* 响应式背景图像 */

@@ -5,7 +5,7 @@ import './Navigation.css';
 const Navigation = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === '/home';
 
   // Close navigation when route changes
   useEffect(() => {
@@ -23,7 +23,6 @@ const Navigation = () => {
         <div className="nav-container">
           <h2 className="nav-title">DT Project Navigation</h2>
           <ul className="nav-links">
-            <li><Link to="/" className="nav-link">DT HomePage</Link></li>
             <li><Link to="/home" className="nav-link">Project Home</Link></li>
             <li><Link to="/system-engineering" className="nav-link">System Engineering</Link></li>
             <li><Link to="/hardware" className="nav-link">Hardware</Link></li>
@@ -57,7 +56,6 @@ const Navigation = () => {
             <div className="nav-content">
               <h2 className="nav-title">DT Project Navigation</h2>
               <ul className="nav-links">
-                <li><Link to="/" className="nav-link">DT HomePage</Link></li>
                 <li><Link to="/home" className="nav-link">Project Home</Link></li>
                 <li><Link to="/system-engineering" className="nav-link">System Engineering</Link></li>
                 <li><Link to="/hardware" className="nav-link">Hardware</Link></li>

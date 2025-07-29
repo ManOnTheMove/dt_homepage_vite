@@ -8,7 +8,9 @@ const SystemEngineering = () => {
     'Software': '/software',
     'Application: Vehicle Integration': '/vehicle-integration',
     'Application: Calibration': '/calibration',
-    'Algo': '/algo'
+    'Algo': '/algo',
+    'System Test': '/system-test-sw-testing',
+    'System Integration Test': '/system-test-sw-testing',
   };
 
   // 页面配置
